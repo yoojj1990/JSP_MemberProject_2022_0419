@@ -76,7 +76,7 @@ public class MemberDao {
 				dbFlag = 0;
 			}
 			
-			
+		
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
