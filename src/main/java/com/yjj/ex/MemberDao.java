@@ -215,4 +215,49 @@ public class MemberDao {
 		return dto;
 	}
 	
+	public int modifyMemberInfo(MemberDto dto) {
+		
+		int dbFlag = 0;
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;//sql 실행 객체
+		ResultSet rs = null;
+		
+		String sql = "UPDATE web_members SET pw=?, email=?, address=? WHERE id = ?";
+		
+		try {
+			Class.forName(driverName);//jdbc 드라이버 로딩
+			conn = DriverManager.getConnection(url, user, password);//DB 연동			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, dto.getPw());
+			pstmt.setString(2, dto.getEmail());
+			pstmt.setString(3, dto.getAddress());
+			pstmt.setString(4, dto.getId());
+			
+			pstmt.executeUpdate();
+			
+		
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs != null) {
+					rs.close();
+				}
+				if(pstmt != null) {
+					pstmt.close();
+				}
+				if(conn != null) {
+					conn.close();
+				}
+			} catch(Exception e) {
+				e.printStackTrace();
+			}			
+			
+		}
+		
+		return dbFlag;
+	}
+	
 }
