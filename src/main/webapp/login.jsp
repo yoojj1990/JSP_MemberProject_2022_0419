@@ -7,7 +7,7 @@
 <title>로그인</title>
 </head>
 <body>
-	<form action="loginOk" method="post">
+	<form action="loginOk.jsp" method="post">
 		아이디 : <input type="text" name="id"><br><br>
 		비밀번호 : <input type="password" name="pw"><br><br>
 		<input type="submit" value="로그인">&nbsp;&nbsp;&nbsp;
