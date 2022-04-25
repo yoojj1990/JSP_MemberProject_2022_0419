@@ -15,6 +15,7 @@
 %>		
 	<script	type="text/javascript">
 		alert("이미 존재하는 아이디입니가. 다른 아이디를 입력해주세요.");
+		history.back();
 	</script>
 <%		
 	} else{
