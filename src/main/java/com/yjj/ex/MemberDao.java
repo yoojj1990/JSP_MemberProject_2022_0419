@@ -235,7 +235,7 @@ public class MemberDao {
 			pstmt.setString(3, dto.getAddress());
 			pstmt.setString(4, dto.getId());
 			
-			pstmt.executeUpdate();
+			dbFlag = pstmt.executeUpdate(); // 수정 성공이면 1반환, 실패면 다른값 반환
 			
 		
 		} catch(Exception e) {
